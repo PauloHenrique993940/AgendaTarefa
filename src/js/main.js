@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#inCadastrar').click(function() {
-        const tarefa = $('#inTarefa').val().trim();  // Remove espaços em branco
+        const tarefa = $('#inTarefa').val().trim();  
 
         if (tarefa !== '') {
             // Cria um novo elemento <li> para a tarefa
@@ -8,6 +8,11 @@ $(document).ready(function() {
 
             // Cria um elemento <span> para exibir o nome da tarefa
             const nomeTarefa = $('<span>').text(tarefa);
+
+            // Adiciona um evento de clique para riscar a tarefa
+            nomeTarefa.click(function() {
+                $(this).toggleClass('riscado'); // Adiciona ou remove a classe "riscado"
+            });
 
             // Adiciona um botão para remover a tarefa
             const botaoRemover = $('<button>').text('Remover').addClass('btn-remover');
@@ -30,5 +35,6 @@ $(document).ready(function() {
         }
     });
 });
+
 
 
